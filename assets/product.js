@@ -1,7 +1,7 @@
 (function(){
  var data=window.KP; if(!data) return;
  var cur=0, img=document.getElementById('mainimg'), th=document.getElementById('thumbs');
- var priceEl=document.getElementById('price'), noteEl=document.getElementById('pnote'), buy=document.getElementById('buy');
+ var priceEl=document.getElementById('price'), noteEl=document.getElementById('pnote'), buy=document.getElementById('buy'), h1=document.getElementById('ptitle');
  function showImg(i){var v=data.v[cur]; img.src=data.p+v.g[i]; [].forEach.call(th.children,function(b,j){b.className=j==i?'on':'';});}
  function setV(i){
   cur=i; var v=data.v[i];
@@ -13,6 +13,7 @@
   if(v.pr){priceEl.textContent=v.pr;noteEl.style.display='';buy.textContent=data.t.buy;}
   else{priceEl.textContent=data.t.pm;noteEl.style.display='none';buy.textContent=data.t.va;}
   buy.href=v.u;
+  if(h1&&v.t){h1.textContent=v.t;}
   if(history.replaceState){history.replaceState(null,'','#'+v.a);}
  }
  [].forEach.call(document.querySelectorAll('.chip'),function(c,j){c.onclick=function(){setV(j)};});
