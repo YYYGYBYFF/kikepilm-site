@@ -35,7 +35,8 @@ section{padding:64px 0}
 .card .cl{display:flex;flex-direction:column;color:inherit}.card .cl:hover{text-decoration:none}
 .card .cl .bd{flex:none}.card .cl .pr{margin-top:0}
 .vls{display:flex;flex-direction:column;gap:6px;padding:0 18px 18px}
-.vl{display:flex;justify-content:space-between;gap:10px;border:1px solid var(--line);border-radius:8px;padding:7px 10px;font-size:13px;color:var(--ink)}
+.vl{display:flex;align-items:center;gap:10px;border:1px solid var(--line);border-radius:8px;padding:5px 10px 5px 5px;font-size:13px;color:var(--ink)}
+.vl img{width:40px;height:40px;object-fit:contain;flex:none;background:#fff;border-radius:6px}.vl span{flex:1}
 .vl b{color:var(--navy);white-space:nowrap}.vl:hover{border-color:var(--blue);background:#eef6fd;text-decoration:none}
 .allv{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:10px}
 .allv a{display:flex;gap:10px;align-items:center;border:1px solid var(--line);border-radius:10px;padding:8px;color:var(--ink);font-size:14px}
