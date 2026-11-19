@@ -1,14 +1,15 @@
 (function(){
  var data=window.KP; if(!data) return;
+ var L=function(n){return /^https?:/.test(n)?n:data.p+n;}, S=function(n){return /^https?:/.test(n)?n.replace(/\.(jpg|jpeg|png)$/i,'._SL300_.$1'):data.p+'s/'+n;};
  var cur=0, img=document.getElementById('mainimg'), th=document.getElementById('thumbs');
  var priceEl=document.getElementById('price'), noteEl=document.getElementById('pnote'), buy=document.getElementById('buy'), h1=document.getElementById('ptitle');
- function showImg(i){var v=data.v[cur]; img.src=data.p+v.g[i]; [].forEach.call(th.children,function(b,j){b.className=j==i?'on':'';});}
+ function showImg(i){var v=data.v[cur]; img.src=L(v.g[i]); [].forEach.call(th.children,function(b,j){b.className=j==i?'on':'';});}
  function setV(i){
   cur=i; var v=data.v[i];
   [].forEach.call(document.querySelectorAll('.chip'),function(c,j){c.className='chip'+(j==i?' on':'');});
   th.innerHTML='';
   v.g.forEach(function(name,j){var b=document.createElement('button');b.type='button';b.setAttribute('aria-label',(j+1)+'');
-   var im=document.createElement('img');im.src=data.p+'s/'+name;im.alt='';b.appendChild(im);b.onclick=function(){showImg(j)};th.appendChild(b);});
+   var im=document.createElement('img');im.src=S(name);im.alt='';b.appendChild(im);b.onclick=function(){showImg(j)};th.appendChild(b);});
   showImg(0);
   if(v.pr){priceEl.textContent=v.pr;noteEl.style.display='';buy.textContent=data.t.buy;}
   else{priceEl.textContent=data.t.pm;noteEl.style.display='none';buy.textContent=data.t.va;}
